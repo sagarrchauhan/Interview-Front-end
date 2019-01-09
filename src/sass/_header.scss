@@ -1,0 +1,210 @@
+.l-header {
+    top: 0;
+    left: 0;
+    padding: 0 $GUTTER_PADDING;
+    width: 100%;
+
+    @include bg-color((90deg, rgb(24, 21, 20) 0%, rgb(45, 40, 38) 100%));
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+
+    &__contact-image{
+        display: none;
+    }
+}
+
+.l-nav{
+    display: flex;    
+    align-items: center;
+
+    .hamburger-menu{
+        display: none;
+        color: $WHITE;
+        font-size: 25px;
+        
+        &__ham{
+            text-decoration: none;
+            &:visited{
+                color: $WHITE;
+            }
+        }
+
+        &__cross{
+            display: none;
+            text-decoration: none;
+        }
+    }
+}
+
+nav{
+    display: flex;
+}
+
+.menu-headers {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    >li {
+        list-style: none;
+        position: relative;
+        margin: 0 20px;
+        line-height: 70px;
+
+        &:hover {
+            .menu-headers__link{
+                color: $WHITE;
+                &.menu-headers__link--dd::after{
+                    border-top: 4px solid $WHITE;
+                }
+            }
+            .menu-headers__menu-items {
+                display: flex;
+                flex-direction: column;
+            }            
+        }        
+
+        .menu-headers__link{
+            padding: 30px 0;
+            text-decoration: none;
+            color: $MENU_COLOR;           
+
+            &.menu-headers__link--dd::after {
+                content: '';
+                border: 4px solid transparent;
+                border-top: 4px solid $MENU_COLOR;                
+                display: inline-block;
+                margin-left: 5px;                
+            }
+        }
+
+
+    }
+
+    &__menu-items {
+        position: absolute;
+        left: -15px;
+        width: 200px;
+        padding-left: 10px;
+        background-color: rgb(24, 21, 20);
+        display: none;
+        border-top: solid 5px rgb(240, 59, 0);
+
+        >li {
+            display: inline-block;
+            line-height: 40px;
+
+            &:hover {
+                >a {
+                    color: $WHITE;
+                }
+            }
+
+            >a {
+                text-decoration: none;
+                color: $MENU_COLOR;
+            }
+        }
+
+    }
+}
+
+.contact-image{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contact-button{    
+    border-radius: 20px;
+    background-color: $CONTACT_BUTTON_COLOR;
+    border: 1px solid transparent;
+    text-align: center;
+    padding: 5px 15px;
+    color: $WHITE;
+    display: inline-block;
+
+    &:hover{
+        background-color: lighten($color: $CONTACT_BUTTON_COLOR, $amount: 10%)
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .l-header {       
+        padding: 0 $MOBILE_PADDING;
+        flex-direction: row-reverse;
+        height: 70px;
+
+        &__contact-image{
+            display: block;
+        }
+        
+    }
+    .l-nav{
+        
+        .hamburger-menu{
+            display: block;    
+        }
+
+        .menu-headers{
+            display: none;
+
+            // for opened menu
+            &.menu-headers--open{
+                display: flex;
+                position: absolute;
+                flex-direction: column;
+                left: 0;
+                top: 70px;
+                align-items: center;
+                justify-content: inherit;
+                width: 100%;
+                background: #181514;
+
+                > li {                    
+                    position: relative;
+                    margin: 0 20px;
+                    width: 100%;
+                    text-align: left; 
+
+                    .menu-headers__link.menu-headers__link--dd, .menu-headers__link{
+                        display: inline-block;
+                        padding: 0;
+                        width: 100%;
+                        margin-left: 15px;
+
+                        &::after {                                                  
+                            float: right;
+                            right: 30px;
+                            position: relative;
+                            top: 31px;
+                            transform: rotate(-90deg);                  
+                        }
+                    }
+                }
+            }
+
+            &__menu-items {
+                position: relative;
+                left: 0;
+                width: 100%;
+                padding-left: 30px;
+        
+                >li {
+                    >a {
+                        display: inline-block;
+                        width: 100%;
+                    }
+                }
+        
+            }
+
+        }
+        .contact-button{
+            display: none;
+        }
+    }
+}

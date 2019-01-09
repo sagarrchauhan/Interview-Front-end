@@ -1,0 +1,114 @@
+.l-workwithus {
+    width: 100%;
+    background-image: url("images/workplace.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px 0;
+
+    .work-wrap {
+        width: 60%;
+        margin: 0 auto;
+    }
+    
+}
+
+
+.work-header {
+    text-align: center;
+    padding: 20px;
+    color: $WHITE;
+
+    &__title {
+        margin: 3px;
+    }
+
+    &__desc {
+        font-size: 20px;
+    }
+}
+
+.contact-form-container{
+    margin-top: 10px;
+}
+
+.contact-form {
+    
+    display: grid;
+    grid-gap: 15px;
+    grid-template-areas:
+        "name email phone"
+        "message message message"
+        ". button .";
+
+    input, textarea{
+        border-radius: 3px;
+        padding: 5px 5px;
+        font-size: 14px;
+    }
+
+    &__name {
+        grid-area: name;
+    }
+
+    &__email {
+        grid-area: email;
+    }
+
+    &__phone {
+        grid-area: phone;
+    }
+
+    &__message {
+        grid-area: message;
+        resize: none;     
+        height: 80px;
+    }
+
+    &__submit{
+        grid-area: button;
+        justify-self: center;
+        padding: 5px 25px;           
+    }
+
+    
+}
+
+@media (min-width: 850px) and (max-width: 1050px) {
+    .l-workwithus {       
+        .work-wrap {
+            width: 80%;
+        }       
+    }
+}
+
+@media (min-width: 750px) and (max-width: 850px) {
+    .l-workwithus {  
+        padding-left: $GUTTER_PADDING;
+        padding-right: $GUTTER_PADDING;     
+        .work-wrap {
+            width: 100%;
+        }       
+    }
+}
+
+
+
+@media screen and (max-width: 750px) { 
+    .l-workwithus {  
+        padding-left: $MOBILE_PADDING;
+        padding-right: $MOBILE_PADDING;     
+        .work-wrap {
+            width: 100%;
+        }       
+    }
+    
+    .contact-form {
+        grid-template-areas:
+            "name"
+            "email"
+            "phone"
+            "message"
+            "button";
+    }
+}

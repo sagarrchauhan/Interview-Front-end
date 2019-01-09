@@ -1,0 +1,136 @@
+.l-landing {
+    width: 100%;
+    background-image: url("images/landing.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 70px 0;
+    height: auto;
+
+    &__wrap {
+
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .landing-heading {
+        padding: 15px 50px;
+        text-align: center;
+        color: $WHITE;
+        font-size: 36px;
+    }
+
+    .scroll-down {
+        margin-top: 150px;
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            color: #81736F;
+        }
+    }
+}
+
+
+.l-service-tab {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.service-tab {
+    border: solid 1px #484340;
+    text-align: center;
+    margin: 0 10px;
+    height: 180px;
+    width: 180px;
+    color: $WHITE;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__image {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__label {
+        margin-top: 10px;
+    }
+}
+
+.scroll-down {
+    i {
+        border: solid $MENU_COLOR;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        margin-bottom: 3px;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 1050px) {
+
+    .l-landing__wrap {
+
+        width: 70%;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 850px) {
+
+    .l-landing__wrap {
+
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .l-landing {
+
+        padding: 70px $MOBILE_PADDING;
+
+        &__wrap {
+            width: 100%;
+        }
+
+        .landing-heading {
+            padding: 0;
+        }
+    }
+
+    .l-service-tab {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    
+
+    .service-tab {   
+        height: 55px; 
+        width: 100%;   
+        margin: 5px 0;
+
+        display: grid;
+        
+        grid-template-columns: 20% 80%;
+        grid-gap: 10px;
+
+        &__image{
+            margin: auto 20px;
+            height: 36px;
+            width: auto;
+
+        }
+
+        &__label{
+            text-align: left;
+            margin: auto 0;
+        }
+    }
+}

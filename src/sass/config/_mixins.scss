@@ -1,0 +1,6 @@
+@mixin bg-color($property){
+    background-image: linear-gradient($property);
+    background-image: -moz-linear-gradient($property);
+    background-image: -webkit-linear-gradient($property);
+    background-image: -ms-linear-gradient($property);
+}
