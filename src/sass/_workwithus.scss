@@ -16,20 +16,24 @@
 
 .work-header {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     color: $WHITE;
 
     &__title {
         margin: 3px;
+        @extend %Monteserrat-Headers;
     }
 
     &__desc {
+        font-family: 'Monteserrat-Regular';
         font-size: 20px;
     }
 }
 
 .contact-form-container{
     margin-top: 10px;
+    font-family: 'Monteserrat-Medium';
+    font-size: 16px;
 }
 
 .contact-form {
@@ -44,6 +48,7 @@
     input, textarea{
         border-radius: 3px;
         padding: 5px 5px;
+        font-family: 'Monteserrat-Medium';
         font-size: 14px;
     }
 
@@ -68,7 +73,9 @@
     &__submit{
         grid-area: button;
         justify-self: center;
-        padding: 5px 25px;           
+        padding: 5px 25px;   
+        font-family: 'Monteserrat-Medium';
+        font-size: 16px;        
     }
 
     

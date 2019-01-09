@@ -3,89 +3,148 @@
     padding: 50px 0px;
     background-color: #F8F7F7;
     position: relative;
+
+    .testimonials-header__heading{
+        @extend %Monteserrat-Headers;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #484340;
+    }
 }
 
 
-.triangle-wrap{
+.testimonial{
     padding: 0 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   
+
+    &__text {
+        position:relative;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(239, 237, 236);
+        background-color: rgb(255, 255, 255);
+        filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25)) ;
+        padding: 40px;
+        width: 300px;
+        height: auto;
+        border-radius: 15px;
+        font-family: 'Montserrat-Italic';
+        font-size: 18px;
+
+        &::before {
+            content:"";
+            position:absolute;
+            bottom:-20px; /* value = - border-top-width - border-bottom-width */
+            left:40px; /* controls horizontal position */
+            border:0;
+            border-right-width:30px; /* vary this value to change the angle of the vertex */
+            border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
+            border-style:solid;
+            border-color:transparent #ffffff;
+            /* reduce the damage in FF3.0 */
+            display:block;
+            width:0;
+          }
+
+          &::after {
+            content:"";
+            position:absolute;
+            bottom:-20px; /* value = - border-top-width - border-bottom-width */
+            left:70px; /* value = (:before's left) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
+            border:0;
+            border-left-width:10px; /* vary this value to change the angle of the vertex */
+            border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
+            border-style:solid;
+            border-color:transparent #fff;    
+            /* reduce the damage in FF3.0 */
+            display:block;
+            width:0;
+          }
+      }
+
+        &__client-details{
+            margin-top: 30px;
+            display: flex;
+        }
+
+        &__client-loc{
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        &__client-name{
+            font-family: 'Montserrat-Bold';
+            font-size: 18px;
+        }
+        &__client-comp{
+            font-family: 'Montserrat-Regular';
+            font-size: 14px;
+        }
+      
 }
 
-.triangle-obtuse {
-    position:relative;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(239, 237, 236);
-    background-color: rgb(255, 255, 255);
-    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25)) ;
-    padding: 40px;
-    width: 370px;
-    height: auto;
-    border-radius: 15px;
-  }
 
-  /* creates the wider right-angled triangle */
-.triangle-obtuse:before {
-    content:"";
-    position:absolute;
-    bottom:-20px; /* value = - border-top-width - border-bottom-width */
-    left:40px; /* controls horizontal position */
-    border:0;
-    border-right-width:30px; /* vary this value to change the angle of the vertex */
-    border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
-    border-style:solid;
-    border-color:transparent #ffffff;
-    /* reduce the damage in FF3.0 */
-    display:block;
-    width:0;
-  }
-  
-  /* creates the narrower right-angled triangle */
-  .triangle-obtuse:after {
-    content:"";
-    position:absolute;
-    bottom:-20px; /* value = - border-top-width - border-bottom-width */
-    left:70px; /* value = (:before's left) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
-    border:0;
-    border-left-width:10px; /* vary this value to change the angle of the vertex */
-    border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
-    border-style:solid;
-    border-color:transparent #fff;    
-    /* reduce the damage in FF3.0 */
-    display:block;
-    width:0;
-  }
-  .carousel-container
-  {
-      width: 1230px;
+  .testimonial-container  {
+      width: 1020px;
       margin: auto;
       overflow: hidden;
+
+      &__slider{
+        display: flex;
+        width: 340px;
+    }
+  
   }
 
-  .carousel-slide{
-      display: flex;
-      width: 410px;
-  }
 
-  .client-details{
-      margin-top: 30px;
-      display: flex;
+  
 
-      .client-loc{
-          margin-left: 10px;
-          margin-top: 10px;
-      }
-  }
-
-  #prevBtn{
+  #prev-btn{
       position: absolute;
       top: 40%;
       left: 5px;
   }
 
-  #nextBtn{
+  #next-btn{
     position: absolute;
     top: 40%;
     right: 5px;
+}
+
+
+@media (min-width: 750px) and (max-width: 1070px) {
+    .testimonial-container  {
+        width: 340px;       
+    }
+
+    #prev-btn{
+        position: absolute;
+        top: 40%;
+        left: 20%;
+    }
+  
+    #next-btn{
+      position: absolute;
+      top: 40%;
+      right: 20%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .testimonial-container  {
+        width: 340px;       
+    }
+
+    #prev-btn{
+        position: relative;
+        float:left;
+        margin-left: calc(50% - 42px);
+    }
+  
+    #next-btn{
+        position: relative;
+        float: right;
+        margin-right: calc(50% - 42px);
+    }
 }

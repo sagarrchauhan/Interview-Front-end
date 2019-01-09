@@ -23,12 +23,13 @@
     color: #484340;
 
     &__header {
-        font-size: 28px;
+        @extend %Monteserrat-Headers;
         line-height: 1.2;
     }
 
     &__desc {
         font-size: 16px;
+        font-family: 'Montserrat-Regular';
         line-height: 1.5;
     }
 }

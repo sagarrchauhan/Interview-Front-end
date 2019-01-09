@@ -6,6 +6,7 @@
     background-position: center;
     padding: 70px 0;
     height: auto;
+    font-family: 'Montserrat-Medium';
 
     &__wrap {
 
@@ -16,7 +17,7 @@
     .landing-heading {
         padding: 15px 50px;
         text-align: center;
-        color: $WHITE;
+        color: $WHITE;        
         font-size: 36px;
     }
 
@@ -27,6 +28,7 @@
         a {
             text-decoration: none;
             color: #81736F;
+            font-size: 16px;
         }
     }
 }
@@ -57,6 +59,7 @@
 
     &__label {
         margin-top: 10px;
+        font-size: 16px;
     }
 }
 

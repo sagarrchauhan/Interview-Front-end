@@ -16,9 +16,9 @@
     }
 }
 
-.l-nav{
+.l-header__nav{
     display: flex;    
-    align-items: center;
+    align-items: center;   
 
     .hamburger-menu{
         display: none;
@@ -39,7 +39,7 @@
     }
 }
 
-nav{
+.navbar{
     display: flex;
 }
 
@@ -47,6 +47,8 @@ nav{
     margin: 0;
     padding: 0;
     display: flex;
+    font-family: 'Montserrat-Medium';
+    font-size: 16px;
 
     >li {
         list-style: none;
@@ -125,6 +127,8 @@ nav{
     padding: 5px 15px;
     color: $WHITE;
     display: inline-block;
+    font-family: 'Montserrat-Medium';
+    font-size: 16px;
 
     &:hover{
         background-color: lighten($color: $CONTACT_BUTTON_COLOR, $amount: 10%)
@@ -143,10 +147,17 @@ nav{
         }
         
     }
-    .l-nav{
+    .l-header__nav{
         
         .hamburger-menu{
             display: block;    
+
+            &__ham,&__cross{
+                &:visited{
+                    color: $WHITE;
+                }
+            }
+
         }
 
         .menu-headers{
@@ -163,6 +174,7 @@ nav{
                 justify-content: inherit;
                 width: 100%;
                 background: #181514;
+                transition: "height 0.8s ease-in-out";
 
                 > li {                    
                     position: relative;
