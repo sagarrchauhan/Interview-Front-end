@@ -33,7 +33,7 @@
         width:100%;
         height: 150px;     
         border-radius: 10px;
-        background-color: #81736F;
+        background-color: $MENU_LINK;
     }
 
     &__desc{
@@ -64,8 +64,8 @@
 @media screen and (max-width: 650px) {    
 
     .l-success{
-        padding-left: $MOBILE_PADDING;
-        padding-right: $MOBILE_PADDING;
+        padding-left: $MOBILE_PADDING;        
+        padding-right: $MOBILE_PADDING; 
     }
 
     .success-header{

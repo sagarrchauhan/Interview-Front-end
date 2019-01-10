@@ -3,10 +3,8 @@
     left: 0;
     padding: 0 $GUTTER_PADDING;
     width: 100%;
-
-    @include bg-color((90deg, rgb(24, 21, 20) 0%, rgb(45, 40, 38) 100%));
+    @include bg-color((90deg, $MENU_BACKGROUND 0%, rgb(45, 40, 38) 100%));
     box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
-
     display: flex;
     align-items: center;
     justify-content: space-between;    
@@ -82,8 +80,6 @@
                 margin-left: 5px;                
             }
         }
-
-
     }
 
     &__menu-items {
@@ -91,23 +87,25 @@
         left: -15px;
         width: 200px;
         padding-left: 10px;
-        background-color: rgb(24, 21, 20);
+        background-color: $MENU_BACKGROUND;
         display: none;
-        border-top: solid 5px rgb(240, 59, 0);
+        border-top: solid 5px $MENU_TOP_BORDER;
 
         >li {
             display: inline-block;
             line-height: 40px;
 
+            >a {
+                text-decoration: none;
+                color: $MENU_COLOR;
+                display: inline-block;
+                width: 100%;
+            }
+
             &:hover {
                 >a {
                     color: $WHITE;
                 }
-            }
-
-            >a {
-                text-decoration: none;
-                color: $MENU_COLOR;
             }
         }
 
@@ -153,49 +151,68 @@
             display: block;    
 
             &__ham,&__cross{
+                outline: none;
                 &:visited{
                     color: $WHITE;
+                }
+                &:hover{
+                    color: #F03B00;                    
                 }
             }
 
         }
 
-        .menu-headers{
-            display: none;
+        .menu-headers{          
+            
+            height: 0px;            
+            transition: height $MENU_TRANSITION_TIMER ease-in;
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            left: 0;
+            top: 70px;            
+            justify-content: flex-start;
+            width: 100%;
+            background: #2D2826;
+            overflow: hidden;     
+            z-index: 2;                  
 
-            // for opened menu
-            &.menu-headers--open{
-                display: flex;
-                position: absolute;
-                flex-direction: column;
-                left: 0;
-                top: 70px;
-                align-items: center;
-                justify-content: inherit;
+            > li {                    
+                position: relative;
+                margin: 0;
                 width: 100%;
-                background: #181514;
-                transition: "height 0.8s ease-in-out";
+                text-align: left; 
 
-                > li {                    
-                    position: relative;
-                    margin: 0 20px;
+                .menu-headers__link.menu-headers--dd, .menu-headers__link{                        
+                    padding: 0;
                     width: 100%;
-                    text-align: left; 
-
-                    .menu-headers__link.menu-headers__link--dd, .menu-headers__link{
-                        display: inline-block;
-                        padding: 0;
-                        width: 100%;
-                        margin-left: 15px;
-
-                        &::after {                                                  
-                            float: right;
-                            right: 30px;
-                            position: relative;
-                            top: 31px;
-                            transform: rotate(-90deg);                  
-                        }
+                    padding-left: 15px;
+                    display: inline-block;
+                    outline: none;                    
+    
+                    &::after {                             
+                        float: right;
+                        right: 15px;
+                        position: relative;
+                        top: 31px;
+                        transform: rotate(-90deg); 
+                        transition: transform 1s;                 
                     }
+                }    
+               
+            }
+
+            // for opened hamburger menu
+            &.menu-headers--open{                                
+                transition: height $MENU_TRANSITION_TIMER ease-in;
+                height: 100vh;
+                
+            }
+            &__link.menu-headers__link--dd.menu-headers__link--rotated-open{
+                color: $WHITE;
+                &::after {       
+                    transform: rotate(0deg);                  
+                    transition: transform 1s;
                 }
             }
 
@@ -204,13 +221,39 @@
                 left: 0;
                 width: 100%;
                 padding-left: 30px;
-        
-                >li {
-                    >a {
-                        display: inline-block;
-                        width: 100%;
+                display: flex;
+                flex-direction: column;
+                height: 0;
+                overflow: hidden;
+                border-top: none;     
+                background: #181514;     
+                
+                
+                &.menu-headers__menu-items--open{
+                    height: auto;
+                    border-top: solid 5px $MENU_TOP_BORDER;
+                    >li {                        
+                        >a {
+                            display: inline-block;
+                            width: 100%;                            
+                        }
+
+                        &:first-child{
+                            >a{
+                                padding-top: 10px;
+                            }
+                        }
+
+                        &:last-child{
+                            >a{
+                                padding-bottom: 10px;
+                            }
+                        }
                     }
+
                 }
+        
+                
         
             }
 

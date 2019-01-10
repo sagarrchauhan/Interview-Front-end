@@ -1,30 +1,55 @@
-.l-testimonials{
+.l-testimonials {
     width: 100%;
     padding: 50px 0px;
     background-color: #F8F7F7;
     position: relative;
 
-    .testimonials-header__heading{
+    .testimonials-header__heading {
         @extend %Monteserrat-Headers;
         text-align: center;
         margin-bottom: 40px;
         color: #484340;
     }
+    
+    #prev-btn {
+        position: absolute;
+        top: 40%;
+        left: 5px;
+        height: 36px;
+        width: 36px;
+        background-image: url('images/left-arrow-g.png');
+        
+        &:hover{
+            background-image: url('images/left-arrow.png');
+        }
+    }
+
+    #next-btn {        
+        position: absolute;
+        top: 40%;
+        right: 5px;
+        height: 36px;
+        width: 36px;
+        background-image: url('images/right-arrow-g.png');
+
+        &:hover{
+            background-image: url('images/right-arrow.png');
+        }
+    }
 }
 
-
-.testimonial{
+.testimonial {
     padding: 0 20px;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
 
     &__text {
-        position:relative;
+        position: relative;
         border-style: solid;
         border-width: 1px;
         border-color: rgb(239, 237, 236);
         background-color: rgb(255, 255, 255);
-        filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25)) ;
+        filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
         padding: 40px;
         width: 300px;
         height: auto;
@@ -33,118 +58,127 @@
         font-size: 18px;
 
         &::before {
-            content:"";
-            position:absolute;
-            bottom:-20px; /* value = - border-top-width - border-bottom-width */
-            left:40px; /* controls horizontal position */
-            border:0;
-            border-right-width:30px; /* vary this value to change the angle of the vertex */
-            border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
-            border-style:solid;
-            border-color:transparent #ffffff;
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            /* value = - border-top-width - border-bottom-width */
+            left: 40px;
+            /* controls horizontal position */
+            border: 0;
+            border-right-width: 30px;
+            /* vary this value to change the angle of the vertex */
+            border-bottom-width: 20px;
+            /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
+            border-style: solid;
+            border-color: transparent #ffffff;
             /* reduce the damage in FF3.0 */
-            display:block;
-            width:0;
-          }
+            display: block;
+            width: 0;
+        }
 
-          &::after {
-            content:"";
-            position:absolute;
-            bottom:-20px; /* value = - border-top-width - border-bottom-width */
-            left:70px; /* value = (:before's left) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
-            border:0;
-            border-left-width:10px; /* vary this value to change the angle of the vertex */
-            border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
-            border-style:solid;
-            border-color:transparent #fff;    
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            /* value = - border-top-width - border-bottom-width */
+            left: 70px;
+            /* value = (:before's left) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
+            border: 0;
+            border-left-width: 10px;
+            /* vary this value to change the angle of the vertex */
+            border-bottom-width: 20px;
+            /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
+            border-style: solid;
+            border-color: transparent #fff;
             /* reduce the damage in FF3.0 */
-            display:block;
-            width:0;
-          }
-      }
+            display: block;
+            width: 0;
+        }
+    }
 
-        &__client-details{
-            margin-top: 30px;
-            display: flex;
-        }
+    &__client-details {
+        margin-top: 30px;
+        display: flex;
+    }
 
-        &__client-loc{
-            margin-left: 10px;
-            margin-top: 10px;
-        }
+    &__client-loc {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
 
-        &__client-name{
-            font-family: 'Montserrat-Bold';
-            font-size: 18px;
-        }
-        &__client-comp{
-            font-family: 'Montserrat-Regular';
-            font-size: 14px;
-        }
-      
+    &__client-name {
+        font-family: 'Montserrat-Bold';
+        font-size: 18px;
+    }
+
+    &__client-comp {
+        font-family: 'Montserrat-Regular';
+        font-size: 14px;
+    }
+
 }
 
 
-  .testimonial-container  {
-      width: 1020px;
-      margin: auto;
-      overflow: hidden;
+.testimonial-container {
+    width: 1020px;
+    margin: auto;
+    overflow: hidden;
 
-      &__slider{
+    &__slider {
         display: flex;
         width: 340px;
     }
-  
-  }
 
-
-  
-
-  #prev-btn{
-      position: absolute;
-      top: 40%;
-      left: 5px;
-  }
-
-  #next-btn{
-    position: absolute;
-    top: 40%;
-    right: 5px;
 }
+
+
+
 
 
 @media (min-width: 750px) and (max-width: 1070px) {
-    .testimonial-container  {
-        width: 340px;       
+
+    .l-testimonials {
+        #prev-btn {
+            position: absolute;
+            top: 40%;
+            left: 20%;
+        }
+
+        #next-btn {
+            position: absolute;
+            top: 40%;
+            right: 20%;
+        }
     }
 
-    #prev-btn{
-        position: absolute;
-        top: 40%;
-        left: 20%;
+    .testimonial-container {
+        width: 340px;
     }
-  
-    #next-btn{
-      position: absolute;
-      top: 40%;
-      right: 20%;
-    }
+
+
 }
 
 @media screen and (max-width: 750px) {
-    .testimonial-container  {
-        width: 340px;       
+
+    .l-testimonials {
+
+        #prev-btn {
+            position: relative;
+            float: left;
+            margin-left: calc(50% - 50px);
+            background-image: url('images/left-arrow.png');
+        }
+
+        #next-btn {
+            position: relative;
+            float: right;
+            margin-right: calc(50% - 50px);
+            background-image: url('images/right-arrow.png');
+        }
     }
 
-    #prev-btn{
-        position: relative;
-        float:left;
-        margin-left: calc(50% - 42px);
+    .testimonial-container {
+        width: 340px;
     }
-  
-    #next-btn{
-        position: relative;
-        float: right;
-        margin-right: calc(50% - 42px);
-    }
+
 }

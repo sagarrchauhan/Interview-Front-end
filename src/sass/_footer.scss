@@ -3,7 +3,7 @@
     padding: 30px $GUTTER_PADDING;
     width: 100%;
     box-sizing: border-box;
-    @include bg-color((90deg, rgb(24, 21, 20) 0%, rgb(45, 40, 38) 100%));
+    @include bg-color((90deg, $MENU_BACKGROUND 0%, rgb(45, 40, 38) 100%));
     box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
 @media screen and (max-width: 650px) {
     .footer{
         padding-left: $MOBILE_PADDING;        
-        padding-right: $MOBILE_PADDING;        
+        padding-right: $MOBILE_PADDING; 
         display: block;
         text-align: center;   
         

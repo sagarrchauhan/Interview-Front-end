@@ -9,7 +9,6 @@
     font-family: 'Montserrat-Medium';
 
     &__wrap {
-
         width: 50%;
         margin: 0 auto;
     }
@@ -27,7 +26,7 @@
 
         a {
             text-decoration: none;
-            color: #81736F;
+            color: $MENU_LINK;
             font-size: 16px;
         }
     }
@@ -78,7 +77,6 @@
 @media (min-width: 850px) and (max-width: 1050px) {
 
     .l-landing__wrap {
-
         width: 70%;
     }
 }
@@ -86,7 +84,6 @@
 @media (min-width: 650px) and (max-width: 850px) {
 
     .l-landing__wrap {
-
         width: 80%;
     }
 }
@@ -94,7 +91,6 @@
 @media screen and (max-width: 650px) {
 
     .l-landing {
-
         padding: 70px $MOBILE_PADDING;
 
         &__wrap {
@@ -118,9 +114,7 @@
         height: 55px; 
         width: 100%;   
         margin: 5px 0;
-
-        display: grid;
-        
+        display: grid;        
         grid-template-columns: 20% 80%;
         grid-gap: 10px;
 
